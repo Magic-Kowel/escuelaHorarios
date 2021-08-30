@@ -1,0 +1,13 @@
+.login{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background: rgb(255,0,155);
+    background: linear-gradient(90deg, rgba(255,0,155,1) 0%, rgba(122,78,192,1) 60%, rgba(0,212,255,1) 100%);
+}
+.bg-fullColor{
+    background: rgb(255,0,155) !important;
+    background: linear-gradient(90deg, rgba(255,0,155,1) 0%, rgba(122,78,192,1) 60%, rgba(0,212,255,1) 100%) !important;
+}
