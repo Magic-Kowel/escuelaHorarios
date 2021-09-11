@@ -24,7 +24,7 @@ const app= new Vue ({
             if (res.data.responce == 'success') {
                 Swal.fire({
                     title:'logeado',
-                    text:this.respuesta,
+                    text:'Bienvenido',
                     icon:'success',
                     timer:'2000'
                 }).then(res =>{
