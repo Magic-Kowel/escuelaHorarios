@@ -12,7 +12,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clase</a>
+                        <a class="nav-link" href="../../views/horarios/">Clase</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../views/usuarios/">Usuarios</a>

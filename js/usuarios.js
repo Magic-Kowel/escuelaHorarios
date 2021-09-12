@@ -5,6 +5,13 @@ const app= new Vue ({
         usuarios:[],
         buscar:'',
         typeUser:[],
+        id:'',
+        password:'',
+        password2:'',
+        privilegio:'',
+        correoUser:'',
+        apellidosUser:'',
+        nombreUser:''
     },
     created() {
         this.getUser();
@@ -36,15 +43,14 @@ const app= new Vue ({
             const form = document.getElementById('formUser')
             const dataForm = new FormData(form);
             console.log('datos form',...dataForm);
-            let {password,password2,typeUser,correoUser,apellidosUser,nombreUser}=dataForm;
-            //if(correoUser !='' || password !='' || nombreUser !='' || apellidosUser !='' || typeUser !='' ){
-                console.log(password,password2,typeUser,correoUser,apellidosUser,nombreUser);
-                if(password == password2){
+            if(this.correoUser.trim() !='' && this.password.trim()  !='' && this.nombreUser.trim()  !='' && this.apellidosUser.trim()  !='' && this.typeUser.trim()  !=''  ){
+                if(this.password == this.password2){
                         axios.post('../../api/usuarios/addUser.php', dataForm)
                             .then(res => {
                                 this.respuesta = res.data;
                                 console.log('respuesta',this.respuesta);
                                 this.getUser();
+                                this.clearData();
                                 if (this.respuesta.responce == 'success') {
                                     Swal.fire({
                                         title: 'Guardado',
@@ -60,19 +66,21 @@ const app= new Vue ({
                                 }
                             });
                 }else{
+                    this.clearData();
                     Swal.fire({
                         title: 'Error',
-                        text: 'Contraseñas no coinsiden'+password +' '+password2,
+                        text: 'Contraseñas no coinsiden'+this.password +' = '+this.password2,
                         icon: 'error'
                     });
                 }
-            /*}else{
+            }else{
+                this.clearData();
                 Swal.fire({
                     title: 'Rellene datos',
                     text: 'Rellene todos los datos',
                     icon: 'error'
                 });
-            }*/
+            }
         },
         deleteUser(id){
             Swal.fire({
@@ -91,7 +99,6 @@ const app= new Vue ({
                     axios.post('../../api/usuarios/deleteUser.php',deleteUser)
                         .then(res => {
                             this.respuesta= res.data
-                            
                             if (this.respuesta.responce == 'success') {
                                 this.getUser();
                                 Swal.fire({
@@ -107,11 +114,74 @@ const app= new Vue ({
                                 })
                             }
                             
-                        })
+                        });
                 } else {
                     return false
                 }
             })
+        },
+        getDataUser(id,nombreUser,apellidosUser,correoUser,privilegio){
+            this.id=id;
+            this.correoUser=correoUser;
+            this.apellidosUser=apellidosUser;
+            this.nombreUser=nombreUser;
+            this.privilegio= privilegio;
+            console.log('update',
+            this.id,
+            this.privilegio,
+            this.correoUser,
+            this.apellidosUser,
+            this.nombreUser);
+        },
+        updateUser(){
+            if(this.correoUser.trim() !='' && this.password.trim()  !='' && this.nombreUser.trim()  !='' && this.apellidosUser.trim()  !='' && this.typeUser.trim()  !=''  ){
+                if(this.password == this.password2){
+                    const formUpdate = document.getElementById('formUserUpdate');
+                    const dataFormUpdate = new FormData(formUpdate);
+                    console.log('datos form Update',...dataFormUpdate);
+                    axios.post('../../api/usuarios/updateUser.php', dataFormUpdate)
+                                .then(res => {
+                                    this.respuesta = res.data;
+                                    console.log('respuesta',this.respuesta);
+                                    this.clearData();
+                                    if (this.respuesta.responce == 'success') {
+                                        Swal.fire({
+                                            title: 'Actualizado',
+                                            text: 'Usuario Actualizado',
+                                            icon: 'success'
+                                        });
+                                        this.getUser();
+                                    } else {
+                                        console.log(this.respuesta);
+                                        Swal.fire({
+                                            title: 'Error',
+                                            text: ''+this.respuesta.error,
+                                            icon: 'error'
+                                        });
+                                    }
+                                });
+                }else{
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Contraseñas no coinsiden'+this.password +' = '+this.password2,
+                        icon: 'error'
+                    });
+                }
+            }else{
+                Swal.fire({
+                    title: 'Rellene datos',
+                    text: 'Rellene todos los datos',
+                    icon: 'error'
+                });
+            }
+        },
+        clearData(){
+            password='';
+            password2='';
+            privilegio='';
+            correoUser='';
+            apellidosUser='';
+            nombreUser='';
         }
     },
 });

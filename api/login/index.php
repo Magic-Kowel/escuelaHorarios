@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 echo  $error;
             }
 }else{
-    header("location:../../index.php");
+    header("location:../../../index.php");
 }
 ?>
 
