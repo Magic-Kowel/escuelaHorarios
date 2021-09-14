@@ -63,6 +63,7 @@
                         <th scope="col">Salon</th>
                         <th scope="col">Inicio</th>
                         <th scope="col">Fin</th>
+                        <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +73,13 @@
                             <td>{{item.salon}}</td>
                             <td>{{item.horario_inicio}}</td>
                             <td>{{item.horario_fin}}</td>
+                            <th>
+                                <button @click="deleteClass(item.id_clase)" 
+                                    type="button"
+                                    class="btn btn-danger">
+                                        Eliminar
+                                </button>
+                            </th>
                         <tr>
                     </tbody>
                 </table>

@@ -31,7 +31,7 @@
                             <th scope="col">Apellido</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Privilegio</th>
-                            <th scope="col">Mothodo</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
