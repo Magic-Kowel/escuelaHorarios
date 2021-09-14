@@ -28,7 +28,7 @@ const app= new Vue ({
                     icon:'success',
                     timer:'2000'
                 }).then(res =>{
-                    location.href = '../views/horarios';
+                    location.href = '../horarios';
                 });
             } else {
                 Swal.fire(
