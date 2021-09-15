@@ -18,7 +18,7 @@
                         <a class="nav-link" href="../../views/usuarios/">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='./../includes/salir.php'>
+                        <a class="nav-link" href='./../../includes/salir.php'>
                             <span> Salir</span>    
                         </a>
                     </li>

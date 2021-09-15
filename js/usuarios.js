@@ -43,7 +43,7 @@ const app= new Vue ({
             const form = document.getElementById('formUser')
             const dataForm = new FormData(form);
             console.log('datos form',...dataForm);
-            if(this.correoUser.trim() !='' && this.password.trim()  !='' && this.nombreUser.trim()  !='' && this.apellidosUser.trim()  !='' && this.typeUser.trim()  !=''  ){
+            
                 if(this.password == this.password2){
                         axios.post('../../api/usuarios/addUser.php', dataForm)
                             .then(res => {
@@ -73,14 +73,6 @@ const app= new Vue ({
                         icon: 'error'
                     });
                 }
-            }else{
-                this.clearData();
-                Swal.fire({
-                    title: 'Rellene datos',
-                    text: 'Rellene todos los datos',
-                    icon: 'error'
-                });
-            }
         },
         deleteUser(id){
             Swal.fire({
@@ -134,7 +126,6 @@ const app= new Vue ({
             this.nombreUser);
         },
         updateUser(){
-            if(this.correoUser.trim() !='' && this.password.trim()  !='' && this.nombreUser.trim()  !='' && this.apellidosUser.trim()  !='' && this.typeUser.trim()  !=''  ){
                 if(this.password == this.password2){
                     const formUpdate = document.getElementById('formUserUpdate');
                     const dataFormUpdate = new FormData(formUpdate);
@@ -167,13 +158,6 @@ const app= new Vue ({
                         icon: 'error'
                     });
                 }
-            }else{
-                Swal.fire({
-                    title: 'Rellene datos',
-                    text: 'Rellene todos los datos',
-                    icon: 'error'
-                });
-            }
         },
         clearData(){
             password='';

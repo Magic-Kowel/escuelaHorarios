@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once('./../../includes/head.php'); ?>
+<?php include_once('./../../includes/logeado.php'); ?>
 <body>
 <div id="app" >
         <?php include_once('../../includes/menu.php'); ?>
