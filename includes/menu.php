@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg text-white navbar-dark bg-fullColor">
+        <nav class="navbar navbar-expand-lg text-white navbar-dark bg-fullColor">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">School</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

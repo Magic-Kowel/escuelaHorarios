@@ -27,9 +27,12 @@ const app= new Vue ({
                     text:'Bienvenido',
                     icon:'success',
                     timer:'2000'
-                }).then(res =>{
-                    location.href = '../horarios';
                 });
+                if(res.data.pribilegio==1){
+                    location.href = '../horarios';
+                }else{
+                    location.href = '../horariosClases';
+                }
             } else {
                 Swal.fire(
                     'error',

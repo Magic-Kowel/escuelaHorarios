@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 $_SESSION['pribilegio'] = $row['id_privilegio_usuario'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['nombre'] = $row['nombre_usuario'];
-                    echo json_encode(array('responce'=>'success'));
+                    echo json_encode(array('responce'=>'success','pribilegio'=>$_SESSION['pribilegio']));
                 } else {
                 $error = "faill";
                 echo  $error;
+                }
+            }else{
+                header("location:../../../index.php");
             }
-}else{
-    header("location:../../../index.php");
-}
 ?>
 
 

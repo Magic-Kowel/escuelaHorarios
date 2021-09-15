@@ -2,6 +2,7 @@
 <html lang="en">
 <?php include_once('./../../includes/head.php'); ?>
 <?php include_once('./../../includes/logeado.php'); ?>
+<?php include_once('./../../includes/sessionMaestro.php'); ?>
 <body>
 <div id="app" >
         <?php include_once('../../includes/menu.php'); ?>
