@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 $_SESSION['pribilegio'] = $row['id_privilegio_usuario'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['nombre'] = $row['nombre_usuario'];
-                    echo json_encode(array('responce'=>'success','pribilegio'=>$_SESSION['pribilegio']));
+                    echo json_encode(array('responce'=>'success','pribilegio'=>1));
                 } else {
                 $error = "faill";
                 echo  $error;
