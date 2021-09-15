@@ -54,6 +54,14 @@
                     </button>
                 </div>
             </form>
+            <div class="input-group mb-3">
+                <input class="form-control" type="search" 
+                v-model="buscar"
+                placeholder="Buscar Clase">
+                <div class="input-group-append">
+                    <span id="button-search" class="input-group-text">🔎</span>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table align-middle table-hover">
                     <thead>
@@ -67,7 +75,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item,index) in schedule" :key="item.id_clase">
+                        <tr v-for="(item,index) in datosFiltrados" :key="item.id_clase">
                             <th scope="row">{{item.id_clase}}</th>
                             <td>{{item.nombre_usuario}}</td>
                             <td>{{item.salon}}</td>
