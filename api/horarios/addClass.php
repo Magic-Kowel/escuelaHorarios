@@ -3,10 +3,12 @@ include '../conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
     include_once('../../includes/variablePost.php');
     $sqlClass = "SELECT * FROM clase WHERE salon = '$clasRoom' ";
-    $sqlTime = "SELECT * FROM clase WHERE horario_inicio BETWEEN '$timeStart' and horario_fin and '$timeEnd'";
+    $sqlTime = "SELECT * FROM `clase` WHERE
+        salon ='$clasRoom' 
+        and horario_inicio >='$timeStart' and horario_fin <= '$timeEnd'";
             $result=$con->query($sqlClass);
             $rows = $result->num_rows;
-            if($rows<1) {
+            //if($rows<1) {
                 $result=$con->query($sqlTime);
                 $rows = $result->num_rows;
                 if($rows<1) {
@@ -21,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 }else {
                     echo json_encode(array('error'=>'Tiempo Ocupado'));
                 }
-            } else {
+            /*} else {
                 echo json_encode(array('error'=>'Clase ya existe'));
-            }
+            }*/
 }else{
     header("location:../../index.php");
 }
